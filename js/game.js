@@ -26,6 +26,7 @@ function startTimer() {
     if (timerInterval) clearInterval(timerInterval);
     timerInterval = setInterval(() => {
         timeLeft--;
+        console.log("남은 시간:", timeLeft);
         document.getElementById("time-left").innerText = timeLeft;
 
         if (timeLeft <= 0) {
@@ -34,6 +35,10 @@ function startTimer() {
         }
     }, 1000);
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    startTimer();
+});
 
 /* 숨은 그림 찾기 */
 function foundHidden(event) {
@@ -149,17 +154,24 @@ function wrongClick(event) {
             message.style.opacity = "0";
             message.style.transform = "translateX(-50%) scale(0)";
         }, 700);
+
             function playWrongSound() {
                 let sound = document.getElementById("wrongSound");
-                sound.playbackRate = 1.5;
 
-                if (!sound.paused) {
-                    sound.currentTime = 0;
-                } 
-                sound.play();
-            }  
+                if (sound) {
+                    sound.playbackRate = 1.5;
 
+                    if (!sound.paused) {
+                        sound.currentTime = 0;
+                    } 
+                    sound.play();
+                } else {
+                    console.warn("'wrongSound' 오디오 요소를 찾을 수 없습니다.");
+                }
+            }
+            document.addEventListener("DOMContentLoaded", function() {
             playWrongSound();
+            });
         }
     }
 }
