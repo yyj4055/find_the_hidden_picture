@@ -143,8 +143,11 @@ function wrongClick(event) {
 
         /* 틀릴 시 메세지 */
         let sound = document.getElementById("wrongSound");
+        if (sound) { // ✅ null 체크 추가
             sound.playbackRate = 1.5;
+            sound.volume = 0.5;
             sound.play();
+        }
 
         function showWrongMessage() {
             let message = document.getElementById("wrong-message");
@@ -212,9 +215,6 @@ clickSound.volume = 0.3; // 30% 볼륨으로 설정
 
 let dogSound = document.getElementById("dogSound");
 dogSound.volume = 0.4; // 60% 볼륨으로 설정
-
-let wrongSound = document.getElementById("wrongSound");
-wrongSound.volume = 0.3; // 50% 볼륨으로 설정
 
 let successSound = document.getElementById("successSound");
 successSound.volume = 0.4; // 성공 효과음 70% 볼륨
