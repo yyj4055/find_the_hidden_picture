@@ -85,11 +85,11 @@ function foundHidden(event) {
         gameOver(true);
     }
 
+    /* 찾을 시 메세지 */
     let sound = document.getElementById("dogSound");
         sound.playbackRate = 2; // 1.2배 빠르게 재생
         sound.play();
 
-    /* 찾을 시 메세지 */
     function showGreatMessage() {
         let message = document.getElementById("message");
         message.innerHTML = "🎉Great!";
@@ -141,37 +141,22 @@ function wrongClick(event) {
                 gameOver(false);
             } 
 
-        /* 틀린 클릭 시 메세지 */
+        /* 틀릴 시 메세지 */
+        let sound = document.getElementById("wrongSound");
+            sound.playbackRate = 1.5;
+            sound.play();
+
         function showWrongMessage() {
             let message = document.getElementById("wrong-message");
-
             message.innerHTML = "💔Wrong";
             message.style.opacity = "1";
             message.style.color = "rgb(250, 65, 65)";
             message.style.transform = "translateX(-50%) scale(1.3)";
         
             setTimeout(() => {
-            message.style.opacity = "0";
-            message.style.transform = "translateX(-50%) scale(0)";
-        }, 700);
-
-            function playWrongSound() {
-                let wrongSound = document.getElementById("wrongSound");
-
-                if (wrongSound) {
-                    sound.playbackRate = 1.5;
-
-                    if (!wrongSound.paused) {
-                        sound.currentTime = 0;
-                    } 
-                    sound.play();
-                } else {
-                    console.warn("'wrongSound' 오디오 요소를 찾을 수 없습니다.");
-                }
-            }
-            document.addEventListener("DOMContentLoaded", function() {
-            playWrongSound();
-            });
+                message.style.opacity = "0";
+                message.style.transform = "translateX(-50%) scale(0)";
+            }, 700);
         }
     }
 }
