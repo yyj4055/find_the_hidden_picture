@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/find_the_hidden/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Sunflower:wght@300&display=swap&family=Poetsen+One&family=Mochiy+Pop+One&family=Poppins:wght@400;700&family=DynaPuff:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <title>숨은 그림 찾기 - 시작 화면</title>
+</head>
+<body>
+    <div class="intro-container">
+        <h1>Find the hidden picture game!</h1>
+        <h2>🔥 제한 시간 내에 숨은 강아지를 클릭하세요 🔥</h2></br>
+        <div class="info-box">
+           <p id="p1">제한 시간⏳ : ❗️단 15초❗️</p>
+           <p id="p2">숨은 강아지는 총 6마리 🐶</p>
+           <p id="p3">시간 내에 모든 강아지를 찾으면 성공 🥳</p><br>
+           <p class="spacing">‼️ 주의 ‼️</p><br>
+           <p>시간을 넘기면 자동 실패!👎</p>
+           <p>틀린 곳을 클릭하면 하트가 사라짐💔</p>
+           <p>3개의 하트가 모두 사라지면 실패!( ˃̣̣̥ω˂̣̣̥ )</p>
+           <p>파 이 팅 ~ ( ˶ᵔᵕᵔ˶و)و ”</p>
+        </div>
+
+        <!-- 게임 시작 버튼 -->
+        <button id="startBtn">Start!</button>
+
+        <!-- 효과음 -->
+        <audio id="clickSound">
+            <source src="sounds/click.wav" type="audio/wav">
+        </audio>
+    </div>
+
+<script>
+        // 게임 시작 버튼 클릭 시
+        document.getElementById("startBtn").addEventListener("click", function () {
+            let sound = document.getElementById("clickSound");
+            sound.currentTime = 0;
+            sound.play();
+            
+            setTimeout(() => {
+                window.location.href = "game.html"; // 게임 화면으로 이동
+            }, 200);
+        });
+</script>
+
+<script src="js/intro.js"></script>
+
+</body>
+</html>

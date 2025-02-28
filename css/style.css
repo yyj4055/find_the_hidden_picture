@@ -1,0 +1,281 @@
+@keyframes neonGlow1 {
+    100% { text-shadow: 0 0 5px rgb(255, 227, 104, 0.5); }
+    }
+
+@keyframes neonGlow2 {
+    100% { text-shadow: 0 0 5px rgb(0, 0,0, 0.3); }
+    }
+
+/*인트로 - (시작)화면*/
+body {
+    text-align: center;
+    font-family: "Dongle", sans-serif;
+    background: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png"), linear-gradient(45deg, #fffca8, #00bfff);
+    background-size: 200px 200px, 200% 200%;
+    animation: movingPattern 03s infinite linear; 
+}
+
+@keyframes movingPattern {
+    0% {background-position: 0% 0%, 0% 50%; }
+    50% {background-position: 100px 100px, 100% 50%; }
+    100% {background-position: 0% 0%, 0% 50%; }
+}
+
+.info-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 25px;
+    border: 2px solid black;
+    width: 45%;
+    margin: 5px auto;
+    text-align: center;
+}
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+    padding-top: -60px;
+    text-align: center;
+    background-color: transparent;
+}
+.intro-container h1 {
+    color: black;
+    font-family: "Mochiy Pop One", sans-serif;
+    font-size: 38px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: transparent;
+    animation: neonGlow1 0.3s infinite alternate;
+}
+.intro-container h2 {
+    color: black;
+    font-family: "Cute Font";
+    font-size: 28px;
+    letter-spacing: 1.8px;
+    margin-top: 1px;
+    margin-bottom: -10px;
+}
+.intro-container p {
+    color: black;
+    font-family: "Cute Font";
+    font-size: 28px;
+    letter-spacing: 1.1px;
+    margin-bottom: 20px;
+}
+.intro-container #p1::before,
+.intro-container #p2::before,
+.intro-container #p3::before {
+    font-family: "Material Symbols Outlined";
+    content: "Check";
+    color: black;
+    font-size: 27px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+.intro-container p.spacing {
+    margin-top: 10px;
+    margin-bottom: -7px;
+}
+.intro-container button {
+    width: 110px;
+    height: 55px;
+    font-family: "Poppins";
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    z-index: 100;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+.intro-container button:hover {
+    background-color: lightpink;
+}
+
+/*게임 - 화면*/
+h1 {
+    color: black;
+    font-family: "Mochiy Pop One", sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 11px 19px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 20px;
+}
+p {
+   color: black;
+   font-family: "Dongle";
+   font-size: 33px;
+   letter-spacing: 3px;
+   margin-top: 2px;
+   margin-bottom: 2px;
+}
+.game-screen #timer {
+    color: red;
+    font-family: "Dongle";
+    font-size: 40px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    animation: neonGlow2 0.2s infinite alternate;
+}
+.game-screen #count {
+    color: rgb(0, 0, 0);
+    font-family: "Dongle";
+    font-size: 30px;
+    text-align: center;
+    border: none;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 10px;
+    margin-bottom: 16px;
+}
+
+/*게임 컨테이너*/
+.game-container {
+    position: relative;
+    display: block;
+    width: 600px;
+    height: 450px;
+    margin: 0 auto;
+    border: 3px solid rgb(0, 0, 0);
+    padding: 0;
+}
+/*게임 - 숨은 그림 이미지*/
+.game-container img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.game-container .icon-highlight {
+    position: absolute;
+    color: red;
+    font-size: 50px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+/*게임 - 성공 시 메세지*/
+.game-container #message {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    opacity: 0;
+    transform: translatex(-50%) scale(0);
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    font-size: 80px;
+    font-family: "Poetsen One";
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: rgb(50, 207, 255);
+    -webkit-text-stroke: 1.5px rgba(21, 106, 142, 0.766);
+    padding: 25px 30px;
+    z-index: 100;
+    animation: neonGlow1 0.1s infinite alternate;
+}
+/*게임 - 실패 시 메세지*/
+.game-container #wrong-message {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    opacity: 0;
+    transform: translatex(-50%) scale(0);
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    font-size: 80px;
+    font-family: "Poetsen One";
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: rgb(250, 65, 65);
+    -webkit-text-stroke: 1.5px rgba(185, 49, 49, 0.776);
+    padding: 25px 30px;
+    z-index: 100;
+    animation: neonGlow1 0.1s infinite alternate;
+}
+
+/*게임 - 뒤로가기 버튼*/
+#backBtn {
+    margin-top: 20px;
+    margin-left: 34.5%;
+    font-family: "Poppins";
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 110px;
+    height: 45px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#backBtn:hover {
+    background-color: lightpink
+}
+
+/*성공, 실패 화면*/
+.result-screen {
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 25px;
+    width: 500px;
+    height: 260px;
+    margin: 10% auto;
+}
+
+.result-screen h1 {
+    font-family: "Cute Font";
+    font-size: 35px;
+    text-align: center;
+    color: black;
+    border: none;
+}
+
+.result-screen h2 {
+    font-family: "Cute Font";
+    font-size: 50px;
+    text-align: center;
+    color: black;
+    border: none;
+    margin-top: 45px;
+    margin-bottom: 60px;
+}
+
+.result-screen button {
+    margin-left: 40%;
+    margin-right: 40%;
+    font-family: "Poppins";
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 110px;
+    height: 45px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s;
+}
+.result-screen button:hover {
+    background-color: lightpink;
+}
+
+/*하트 아이콘*/
+#lives {
+    font-size: 25px;
+    font-family: "Poppins";
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: red;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    animation: neonGlow2 0.5s infinite alternate;
+}

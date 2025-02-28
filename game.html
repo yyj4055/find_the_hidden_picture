@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/find_the_hidden/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;700&family=DynaPuff:wght@400;700&family=Poetsen+One&family=Mochiy+Pop+One&family=Cute+Font&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <title>숨은 그림 찾기</title>
+</head>
+<body>
+    <h1>Find the hidden picture game!</h1>
+    <p>숨은 강아지를 찾아보세요!</p>
+    
+    <div id="game-screen" class="game-screen">
+        <p id="timer">남은 시간: <span id="time-left">15</span>초</p><br>
+        <p id="count">찾은 강아지: <span id="found-count">0</span> / 6</p>
+
+        <div class="game-container">
+            <img src="images/full_image.jpg" alt="숨은 그림 찾기" usemap="#hiddenMap" width="600" height="450">
+            <p id="message"></p>
+            <p id="wrong-message"></p>
+        </div>  
+
+        <map name="hiddenMap">
+            <area shape="rect" coords="52, 60, 117, 92" alt="강아지1" data-number="1">
+            <area shape="rect" coords="210, 135, 234, 168" alt="강아지2" data-number="2">
+            <area shape="rect" coords="135, 277, 160, 307" alt="강아지3" data-number="3">
+            <area shape="rect" coords="435, 283, 478, 318" alt="강아지4" data-number="4">
+            <area shape="rect" coords="56, 360, 85, 405" alt="강아지5" data-number="5">
+            <area shape="rect" coords="435, 210, 453, 246" alt="강아지6" data-number="6">
+        </map>
+    </div>
+
+    <button id="backBtn">Back</button>
+
+    <p id="lives">Lives <span id="heart-container">❤️❤️❤️</span></p>
+
+    <!-- 성공 화면 -->
+    <div id="success-screen" class="result-screen" style="display: none;">
+        <h1>축하합니다! 🥳<br>숨은 그림을 모두 찾았어요!<br>  \\٩( 'ω' )و//</h1>
+        <button id="toIntroBtn">Title</button>
+    </div>
+
+    <!-- 실패 화면 -->
+    <div id="fail-screen" class="result-screen" style="display: none;">
+        <h2>💔 실패! 😢</h2>
+        <button id="retryBtn">Retry</button>
+    </div>
+
+    <script src="js/game.js"></script>
+
+    <!-- 효과음 리스트 -->
+    <audio id="clickSound"><source src="sounds/click.wav" type="audio/wav"></audio>
+    <audio id="dogSound"><source src="sounds/dog.wav" type="audio/wav"></audio>
+    <audio id="wrongSound"><source src="sounds/wrong.wav" type="audio/wav"></audio>
+    <audio id="successSound"><source src="sounds/success.wav" type="audio/wav"></audio>
+    <audio id="failSound"><source src="sounds/fail.wav" type="audio/wav"></audio>
+
+</body>
+</html>
